@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/albumsFragment">
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.example.userapptask.features.user.albums.AlbumsFragment"
+        android:label="AlbumsFragment"
+        tools:layout="@layout/albums_fragment" >
+        <action
+            android:id="@+id/action_albumsFragment_to_photoFragment"
+            app:destination="@id/photoFragment" >
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.userapptask.features.photos.PhotoFragment"
+        android:label="PhotoFragment"
+        tools:layout="@layout/photo_fragment">
+        <argument
+            android:name="albums"
+            app:argType="com.example.userapptask.data.albumsData.Albums"
+            />
+        <action
+            android:id="@+id/action_photoFragment_to_fragmentDetails"
+            app:destination="@id/detailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.userapptask.features.photoDetails.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/details_fragment" >
+        <argument
+            android:name="photos"
+            app:argType="com.example.userapptask.data.photoData.Photos"
+            />
+    </fragment>
+</navigation>

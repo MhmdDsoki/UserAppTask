@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/font/baloo_thambi.xml" value="0.22708333333333333" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/activity_main.xml" value="0.17314814814814813" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/albums_fragment.xml" value="0.196875" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/albums_item.xml" value="0.196875" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/details_fragment.xml" value="0.196875" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/photo_fragment.xml" value="0.196875" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/layout/photo_item.xml" value="0.196875" />
+        <entry key="..\:/AndrProj/UserAppTask/app/src/main/res/menu/menu_photo_search.xml" value="0.196875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
