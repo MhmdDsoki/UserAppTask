@@ -18,6 +18,8 @@ import com.example.userapptask.databinding.PhotoFragmentBinding
 import com.example.userapptask.utils.Resource
 
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PhotoFragment():Fragment(R.layout.photo_fragment),
@@ -27,9 +29,8 @@ class PhotoFragment():Fragment(R.layout.photo_fragment),
     private var _binding: PhotoFragmentBinding?=null
     private val binding get() = _binding!!
 
-    private val args by navArgs<PhotoFragmentArgs>()
+     val args by navArgs<PhotoFragmentArgs>()
     var photosList = ArrayList<Photos>()
-    //private var photosAdapter: PhotosAdapter = TODO()
     val photosAdapter = PhotosAdapter(this, photosList)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,18 +44,24 @@ class PhotoFragment():Fragment(R.layout.photo_fragment),
                 layoutManager = LinearLayoutManager(context)
             }
             val albums = args.albums
+            //albums
             tvAlbumsTitle.text = albums.title
             tvAlbumsId.text=albums.userId.toString()
             tvAlbumsUserId.text=albums.id.toString()
-
+           // val ref =this@PhotoFragment
             //i want to use the album id as a parameter for albums id at photos
-            lifecycleScope.launchWhenCreated { viewModel.photos.observe(viewLifecycleOwner) { result ->
-                photosAdapter.submitList(result.data)
-                //args.albums.id
-                progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
-                textViewError.isVisible = result is Resource.Error<*> && result.data.isNullOrEmpty()
-                textViewError.text = result.error?.localizedMessage
-            }
+//            lifecycleScope.launch(Dispatchers.IO
+//            ) {
+              //  ref.run {
+                viewModel.photos.observe(viewLifecycleOwner) { result ->
+                    photosAdapter.submitList(result.data)
+                    //args.albums.id
+                    progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
+                    textViewError.isVisible = result is Resource.Error<*> && result.data.isNullOrEmpty()
+                    textViewError.text = result.error?.localizedMessage
+            //}
+
+//             }
             }
 
         }

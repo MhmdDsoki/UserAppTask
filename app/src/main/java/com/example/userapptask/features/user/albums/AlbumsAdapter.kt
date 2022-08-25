@@ -17,7 +17,7 @@ class AlbumsAdapter(private val listener: OnItemClickListener):
     }
     override fun onBindViewHolder(holder: AlbumsViewHolder, position: Int){
         val currentItem = getItem(position)
-
+        holder.bind(albums = currentItem)
         if (currentItem != null) {
             holder.bind(currentItem)
         }
@@ -28,6 +28,7 @@ class AlbumsAdapter(private val listener: OnItemClickListener):
 
         init {
             binding.root.setOnClickListener {
+
                 val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val item = getItem(position)

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.userapptask.R
@@ -35,18 +36,21 @@ class AlbumsFragment : Fragment(R.layout.albums_fragment),AlbumsAdapter.OnItemCl
                 streettv.text=it.data?.address?.street
                 citytv.text=it.data?.address?.city
             }
-
-            viewModelAlbums.albums.observe(viewLifecycleOwner) { result ->
-                albumsAdapter.submitList(result.data)
+            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                viewModelAlbums.albums.observe(viewLifecycleOwner) { result ->
+                    albumsAdapter.submitList(result.data)
 //                 recyclerViewAlbums.setOnClickListener(View.OnClickListener {
 //                     val context: Context = it.getContext()
 //                     val intent = Intent(context, PhotoFragment::class.java)
 //                     context.startActivity(intent)
 //}
 //                 )
-                progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
-                textViewError.isVisible = result is Resource.Error<*> && result.data.isNullOrEmpty()
-                textViewError.text = result.error?.localizedMessage
+                    progressBar.isVisible =
+                        result is Resource.Loading && result.data.isNullOrEmpty()
+                    textViewError.isVisible =
+                        result is Resource.Error<*> && result.data.isNullOrEmpty()
+                    textViewError.text = result.error?.localizedMessage
+                }
             }
         }
     }

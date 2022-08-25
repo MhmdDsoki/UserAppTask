@@ -37,11 +37,11 @@ class AlbumRepository @Inject constructor(
 
     fun getAlbums() = networkBoundResource(
         query = {
-            albumsDao.getAllAlbums(userid = iid )
+            albumsDao.getAllAlbums(userid = 6)
         },
         fetch = {
             delay(2000)
-            api.getAlbumsByUserId(iid)
+            api.getAlbumsByUserId(6)
         },
         saveFetchResult = { albumsList ->
             db.withTransaction {

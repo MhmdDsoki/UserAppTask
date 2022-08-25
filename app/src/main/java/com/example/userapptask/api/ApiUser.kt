@@ -22,6 +22,4 @@ interface ApiUser {
     /* Get photos by albumsId */
     @GET("albums/{id}/photos")
     suspend fun getPhotoAlbums(@Path("id") id: Int?): List<Photos?>?
-
-
 }

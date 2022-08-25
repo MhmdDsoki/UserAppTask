@@ -72,6 +72,7 @@ class PhotosAdapter (private val listener: OnItemClickListener,var photosList : 
     interface OnItemClickListener {
         fun onItemClick(photo: Photos)
     }
+
     class PhotoComparator : DiffUtil.ItemCallback<Photos>() {
         override fun areItemsTheSame(oldItem: Photos, newItem: Photos) =
             oldItem.albumId == newItem.albumId
@@ -79,7 +80,6 @@ class PhotosAdapter (private val listener: OnItemClickListener,var photosList : 
         override fun areContentsTheSame(oldItem: Photos, newItem: Photos) =
             oldItem == newItem
     }
-
 
     override fun getFilter(): Filter {
         return customFilter

@@ -14,7 +14,7 @@ interface PhotosDao {
     fun searchPhotos(searchQuery: String):(Flow<List<Photos>>)
 
     @Query("SELECT * FROM photos WHERE albumId IN (:id)")
-    fun getAllPhotos(id:Int):(Flow<List<Photos?>?>)
+     fun getAllPhotos(id:Int):(Flow<List<Photos?>?>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPhotos(photosList: List<Photos?>?)

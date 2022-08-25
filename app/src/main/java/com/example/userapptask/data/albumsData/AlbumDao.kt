@@ -12,7 +12,7 @@ interface AlbumDao {
     fun getAllAlbums(userid:Int):(Flow<List<Albums?>?>)
 
     @Query("SELECT * FROM Albums")
-    fun getAlbumId():(Albums)
+    suspend fun getAlbumId():Albums
 
     @Query("SELECT * FROM albums WHERE id IN (:Id)")
     fun getAllAlbumsId(Id:Int):(Albums)

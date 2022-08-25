@@ -14,7 +14,7 @@ data class Albums(
     @SerializedName("id")
     @Expose
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    val id: Int,
     @SerializedName("title")
     @Expose
     val title: String

@@ -10,7 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class PhotosViewModel @Inject constructor(
     private val repository: PhotoRepository,
-    @Assisted state: SavedStateHandle
 ) : ViewModel() {
 
     val photos = repository.getPhotos().asLiveData()
@@ -18,8 +17,4 @@ class PhotosViewModel @Inject constructor(
     fun searchDatabase(searchQuery: String): LiveData<List<Photos>> {
         return repository.searchPhotos(searchQuery).asLiveData()
     }
-
 }
-//fun searchPhotos(query: String) {
-//        photos.value?: query
-//      }

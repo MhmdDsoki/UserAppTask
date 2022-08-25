@@ -107,6 +107,8 @@ dependencies {
     //annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
     kapt"androidx.room:room-compiler:2.5.0-alpha02"
     testImplementation "androidx.room:room-testing:2.5.0-alpha02"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha04'
+
 
     //RxJavaCallAdapterFactory
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
